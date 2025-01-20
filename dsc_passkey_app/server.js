@@ -8,9 +8,10 @@ app.use(express.json());
 
 app.post('/press-passkey', (req, res) => {
     isPasskeyPressed = true;
-    res.status(200).send('Passkey pressed');
+    res.status(200).send('Passkey was pressed');
 
-    // Reset passkey status after 5 minutes (300000 milliseconds)
+    // After 5 minutes, lets Reset passkey status
+    //(300000 milliseconds)
     setTimeout(() => {
         isPasskeyPressed = false;
     }, 300000);
@@ -18,7 +19,7 @@ app.post('/press-passkey', (req, res) => {
 
 app.post('/reset-passkey', (req, res) => {
     isPasskeyPressed = false;
-    res.status(200).send('Passkey reset');
+    res.status(200).send('Passkey has been reset');
 });
 
 app.get('/check-passkey', (req, res) => {
